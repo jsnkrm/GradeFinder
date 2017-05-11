@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">project1</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cbse">CBSE</string>
+    <string name="icsc">ICSC</string>
+    <string name="sslc">SSLC</string>
+    <string name="title_activity_cbse">CBSE MARK SYSTEM</string>
+    <string name="lvalue">Lower marks</string>
+    <string name="uvalue">Upper marks</string>
+    <string name="grade">Grade</string>
+    <string name="fields_num">Enter The No.of Fields</string>
+    <string name="submit">SUBMIT</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="title_activity_sslc">sslcActivity</string>
+    <string name="class1">CLASS:</string>
+    <string name="name">NAME:</string>
+    <string name="enter_mark">Enter Marks For Each Subject:</string>
+    <string name="sub1">SUBJECT 1</string>
+    <string name="sub2">SUBJECT 2</string>
+    <string name="sub3">SUBJECT 3</string>
+    <string name="sub4">SUBJECT 4</string>
+    <string name="sub5">SUBJECT 5</string>
+    <string name="eval">EVALUATE</string>
+    <string name="spinner_prompt">Select Class</string>
+    <string name="spinner_prompt1">Select Syllabus</string>
+    <string name="save">SAVE</string>
+    <string name="grade_card">GRADE CARD</string>
+
+</resources>

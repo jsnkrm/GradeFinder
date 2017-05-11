@@ -1,0 +1,56 @@
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/holo_purple">
+
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+
+    >
+
+
+
+        <Button
+            android:textSize="32sp"
+            android:id="@+id/checkbox_cbse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_red_light"
+            android:text="@string/cbse"
+            android:padding="16dp"
+            android:layout_marginBottom="32dp"
+            />
+
+        <Button
+            android:textSize="32sp"
+
+            android:id="@+id/checkbox_icsc"
+            android:layout_width="match_parent"
+            android:background="@android:color/holo_green_light"
+            android:layout_height="match_parent"
+            android:text="@string/icsc"
+            android:padding="16dp"
+            android:layout_marginBottom="32dp"
+
+            />
+
+        <Button
+            android:id="@+id/checkbox_sslc"
+            android:background="@android:color/holo_blue_light"
+            android:layout_width="match_parent"
+            android:textSize="32sp"
+            android:layout_height="match_parent"
+            android:text="@string/sslc"
+            android:padding="16dp"
+            />
+
+
+</LinearLayout>
+</RelativeLayout>
