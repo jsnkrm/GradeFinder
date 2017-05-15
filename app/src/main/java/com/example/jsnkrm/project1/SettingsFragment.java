@@ -29,7 +29,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getContext(),cbseActivity.class);
+                Intent intent = new Intent(getContext(),cbseSettings.class);
                 startActivity(intent);
             }
         });
@@ -40,7 +40,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getContext(),icscActivity.class);
+                Intent intent = new Intent(getContext(),icscSettings.class);
                 startActivity(intent);
             }
         });
@@ -51,12 +51,13 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getContext(),sslcActivity.class);
+                Intent intent = new Intent(getContext(),sslcSettings.class);
                 startActivity(intent);
             }
         });
 
         return rootview;
     }
+
 
     }

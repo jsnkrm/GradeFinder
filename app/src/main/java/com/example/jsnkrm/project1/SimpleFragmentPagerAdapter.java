@@ -14,7 +14,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
-    private String tabTitles[] = new String[] { "Add Grade", "List Grade", "Setings"};
+    private String tabTitles[] = new String[] { "Add Grade", "List Grade", "Settings"};
 
     @Override
     public Fragment getItem(int position) {
@@ -44,4 +44,6 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         // Generate title based on item position
         return tabTitles[position];
     }
+
+
 }

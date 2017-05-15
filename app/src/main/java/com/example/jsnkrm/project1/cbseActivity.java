@@ -31,7 +31,7 @@ public class cbseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cbse);
 
-        sqLiteHandler = new SQLiteHandler(getApplicationContext());
+            sqLiteHandler = new SQLiteHandler(getApplicationContext());
 
         cbseId = new ArrayList<>();
 
@@ -41,8 +41,6 @@ public class cbseActivity extends AppCompatActivity {
 
         final LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
         ll.setBackgroundResource(R.color.cbse);
-
-        final EditText[] editTexts = new EditText[3];
 
         final LinearLayout[] linearLayouts = new LinearLayout[15];
 
@@ -65,41 +63,41 @@ public class cbseActivity extends AppCompatActivity {
 
                     for (int i = 0; i < n; i++) {
 
-                        final LinearLayout lLayout = new LinearLayout(getBaseContext());
+                            final LinearLayout lLayout = new LinearLayout(getBaseContext());
 
-                        EditText lvalue_input = new EditText(getBaseContext());
-                        lvalue_input.setPadding(16, 16, 16, 16);
-                        lvalue_input.setTag("a");
-                        lvalue_input.setTextColor(R.color.colorAccent);
-                        lvalue_input.setInputType(InputType.TYPE_CLASS_NUMBER);
-                        lvalue_input.setHint(lvalue);
-                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams
-                                (LinearLayoutCompat.LayoutParams.WRAP_CONTENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT);
-                        lLayout.addView(lvalue_input);
+                            EditText lvalue_input = new EditText(getBaseContext());
+                            lvalue_input.setPadding(16, 16, 16, 16);
+                            lvalue_input.setTag("a");
+                            lvalue_input.setTextColor(R.color.colorAccent);
+                            lvalue_input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            lvalue_input.setHint(lvalue);
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams
+                                    (LinearLayoutCompat.LayoutParams.WRAP_CONTENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT);
+                            lLayout.addView(lvalue_input);
 
-                        EditText uvalue_input = new EditText(getBaseContext());
-                        uvalue_input.setTextColor(R.color.colorAccent);
-                        uvalue_input.setHint(R.string.uvalue);
-                        uvalue_input.setPadding(16, 16, 16, 16);
-                        uvalue_input.setTag("b");
-                        uvalue_input.setInputType(InputType.TYPE_CLASS_NUMBER);
-                        lLayout.addView(uvalue_input);
+                            EditText uvalue_input = new EditText(getBaseContext());
+                            uvalue_input.setTextColor(R.color.colorAccent);
+                            uvalue_input.setHint(R.string.uvalue);
+                            uvalue_input.setPadding(16, 16, 16, 16);
+                            uvalue_input.setTag("b");
+                            uvalue_input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            lLayout.addView(uvalue_input);
 
-                        //  editTexts[i+1] = uvalue_input;
+                            //  editTexts[i+1] = uvalue_input;
 
-                        EditText grade_input = new EditText(getBaseContext());
-                        grade_input.setHint(R.string.grade);
-                        grade_input.setTextColor(R.color.colorAccent);
-                        grade_input.setTag("c");
-                        grade_input.setPadding(16, 16, 16, 16);
-                        grade_input.setInputType(InputType.TYPE_CLASS_TEXT);
-                        lLayout.addView(grade_input);
+                            EditText grade_input = new EditText(getBaseContext());
+                            grade_input.setHint(R.string.grade);
+                            grade_input.setTextColor(R.color.colorAccent);
+                            grade_input.setTag("c");
+                            grade_input.setPadding(16, 16, 16, 16);
+                            grade_input.setInputType(InputType.TYPE_CLASS_TEXT);
+                            lLayout.addView(grade_input);
 
-                        //   editTexts[i+2] = grade_input;
+                            //   editTexts[i+2] = grade_input;
 
-                        linearLayouts[i] = lLayout;
+                            linearLayouts[i] = lLayout;
 
-                        ll.addView(lLayout, params);
+                            ll.addView(lLayout, params);
 
 
                     }

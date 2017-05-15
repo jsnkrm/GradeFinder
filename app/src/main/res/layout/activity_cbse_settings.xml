@@ -1,0 +1,43 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_purple"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true">
+
+
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new"
+            android:id="@+id/add_new_button"
+            android:background="@color/cbse"
+            />
+        <Button
+            android:id="@+id/modify_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/modify"
+            android:background="@color/cbse"
+            android:layout_marginTop="16dp"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/delete_field_button"
+            android:text="@string/delete"
+            android:background="@color/cbse"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

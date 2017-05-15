@@ -25,6 +25,22 @@
             android:name=".sslcActivity"
             android:label="@string/title_activity_sslc"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".cbseSettings"
+            android:label="@string/cbse"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".modifyTables"
+            android:label="@string/modify_title"
+            android:parentActivityName=".cbseSettings"></activity>
+        <activity
+            android:name=".icscSettings"
+            android:label="@string/icsc"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".sslcSettings"
+            android:label="@string/sslc"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
+
 
 </manifest>

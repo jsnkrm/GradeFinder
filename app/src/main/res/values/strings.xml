@@ -13,6 +13,8 @@
     <string name="fields_num">Enter The No.of Fields</string>
     <string name="submit">SUBMIT</string>
     <string name="confirm">CONFIRM</string>
+    <string name="continue_modify">CONTINUE TO MODIFY</string>
+    <string name="confirm_modify">CONFIRM MODIFICATION</string>
     <string name="title_activity_sslc">sslcActivity</string>
     <string name="class1">CLASS:</string>
     <string name="name">NAME:</string>
@@ -27,5 +29,10 @@
     <string name="spinner_prompt1">Select Syllabus</string>
     <string name="save">SAVE</string>
     <string name="grade_card">GRADE CARD</string>
+    <string name="add_new">ADD NEW MARK FIELD</string>
+    <string name="modify">MODIFY EXISTING FIELD</string>
+    <string name="delete">DELETE EXISTING FIELD</string>
+    <string name="modify_hint">Enter Grade Of Field To Be Modified</string>
+    <string name="modify_title">MODIFY GRADE SYSTEM</string>
 
 </resources>

@@ -40,7 +40,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_ICSC_Upper = "upper_marks";
     private static final String KEY_ICSC_Grade = "grade";
 
-    // sslc table name
+    // sslc table namecursor.getString(cursor.getColumnIndex("name"));
     private static final String TABLE_SSLC = "sslc";
 
     // sslc Table Columns names
@@ -222,6 +222,20 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
     /**
+     * Getting specific cbse data from database
+     * */
+
+    public Cursor getCBSErow(String gr) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_CBSE +" WHERE " + KEY_Grade + "='" + gr.trim()+"'";
+        Cursor prdct = db.rawQuery(selectQuery, null);
+        return prdct;
+    }
+
+
+
+    /**
      * Getting icsc data from database
      * */
 
@@ -232,6 +246,19 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Cursor prdct = db.rawQuery(selectQuery, null);
         return prdct;
     }
+
+    /**
+     * Getting specific icsc data from database
+     * */
+
+    public Cursor getICSCrow(String gr) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_ICSC +" WHERE " + KEY_ICSC_Grade + "='" + gr.trim()+"'";
+        Cursor prdct = db.rawQuery(selectQuery, null);
+        return prdct;
+    }
+
 
     /**
      * Getting sslc data from database
@@ -246,6 +273,18 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
     /**
+     * Getting specific sslc data from database
+     * */
+
+    public Cursor getSSLCrow(String gr) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_SSLC +" WHERE " + KEY_SSLC_Grade + "='" + gr.trim()+"'";
+        Cursor prdct = db.rawQuery(selectQuery, null);
+        return prdct;
+    }
+
+    /**
      * Getting student data from database
      * */
 
@@ -255,6 +294,31 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + TABLE_STU;
         Cursor prdct = db.rawQuery(selectQuery, null);
         return prdct;
+    }
+
+    public void deleteCBSErow(String gr)
+    {
+        SQLiteDatabase db= this.getReadableDatabase();
+        db.execSQL("DELETE FROM "+TABLE_CBSE+" WHERE grade = '" + gr+"'");
+        db.close();
+        Log.d(TAG, "Row deleted from cbse Table:");
+    }
+
+
+    public void deleteSSLCrow(String gr)
+    {
+        SQLiteDatabase db= this.getReadableDatabase();
+        db.execSQL("DELETE FROM "+TABLE_SSLC+" WHERE grade = '" + gr+"'");
+        db.close();
+        Log.d(TAG, "Row deleted from sslc Table:");
+    }
+
+    public void deleteICSCrow(String gr)
+    {
+        SQLiteDatabase db= this.getReadableDatabase();
+        db.execSQL("DELETE FROM "+TABLE_ICSC+" WHERE grade = '" + gr+"'");
+        db.close();
+        Log.d(TAG, "Row deleted from icsc Table:");
     }
 
 }
