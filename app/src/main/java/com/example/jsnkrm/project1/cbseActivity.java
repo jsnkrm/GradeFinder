@@ -104,8 +104,8 @@ public class cbseActivity extends AppCompatActivity {
 
                     }
                 }
-
-                else{
+                else
+                {
                     Toast.makeText(getBaseContext(),"Please enter value",Toast.LENGTH_SHORT).show();
 
                 }
@@ -135,7 +135,6 @@ public class cbseActivity extends AppCompatActivity {
                 }
 
                 finish();
-
             }
 
 
@@ -144,4 +143,6 @@ public class cbseActivity extends AppCompatActivity {
 
 
     }
+
+
 }

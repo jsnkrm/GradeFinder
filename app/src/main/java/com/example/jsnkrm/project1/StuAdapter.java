@@ -17,11 +17,24 @@ import java.util.ArrayList;
 
 public class StuAdapter extends ArrayAdapter<StuInfo> {
 
+    private ArrayList<StuInfo> students;
+
     public StuAdapter(Activity context, ArrayList<StuInfo> stu)
     {
         super(context,0,stu);
+        students = stu;
 
     }
+
+    public void refreshEvents(ArrayList<StuInfo> students) {
+        if (this.students != null) {
+
+            this.students.clear();
+            this.students.addAll(students);
+            notifyDataSetChanged();
+        }
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

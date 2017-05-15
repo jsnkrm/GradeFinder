@@ -56,22 +56,25 @@ public class ListGradeFragment extends Fragment {
 
                     students.add(new StuInfo(name,syll,cl,grtot,gr1,gr2,gr3,gr4,gr5));
 
+
+
                 }while (cursor.moveToNext());
 
             }
         }
 
         cursor.close();
-
         itemsAdapter = new StuAdapter(getActivity(),students);
+
 
         ListView listView = (ListView) rootview.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
-
+//        itemsAdapter.notifyDataSetChanged();
+        itemsAdapter.setNotifyOnChange(true);
+        itemsAdapter.notifyDataSetChanged();
         return rootview;
     }
-
 
 
 }
