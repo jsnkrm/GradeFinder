@@ -31,7 +31,11 @@
             android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".modifyTables"
             android:label="@string/modify_title"
-            android:parentActivityName=".cbseSettings"></activity>
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".deleteTables"
+            android:label="@string/delete_title"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".icscSettings"
             android:label="@string/icsc"

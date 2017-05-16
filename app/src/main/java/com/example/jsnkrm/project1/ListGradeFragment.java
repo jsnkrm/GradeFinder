@@ -18,6 +18,8 @@ public class ListGradeFragment extends Fragment {
     StuAdapter itemsAdapter;
     Cursor cursor;
 
+    boolean allowRefresh = true;
+
     View rootview;
 
     ArrayList<StuInfo> students = new ArrayList<>();
@@ -38,9 +40,8 @@ public class ListGradeFragment extends Fragment {
 
         ListView listView = (ListView) rootview.findViewById(R.id.list);
 
-        itemsAdapter.notifyDataSetChanged();
-
         listView.setAdapter(itemsAdapter);
+
         return rootview;
     }
 

@@ -15,6 +15,7 @@
     <string name="confirm">CONFIRM</string>
     <string name="continue_modify">CONTINUE TO MODIFY</string>
     <string name="confirm_modify">CONFIRM MODIFICATION</string>
+    <string name="confirm_delete">CONFIRM DELETION</string>
     <string name="title_activity_sslc">sslcActivity</string>
     <string name="class1">CLASS:</string>
     <string name="name">NAME:</string>
@@ -34,5 +35,7 @@
     <string name="delete">DELETE EXISTING FIELD</string>
     <string name="modify_hint">Enter Grade Of Field To Be Modified</string>
     <string name="modify_title">MODIFY GRADE SYSTEM</string>
+    <string name="delete_title">DELETE GRADE FIELD</string>
+    <string name="delete_hint">Enter Grade Of Field Tb Be Modified</string>
 
 </resources>

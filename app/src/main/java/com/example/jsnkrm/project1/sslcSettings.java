@@ -40,6 +40,17 @@ public class sslcSettings extends AppCompatActivity{
             }
         });
 
+        Button del = (Button) findViewById(R.id.delete_field_button);
+        del.setBackgroundResource(R.color.sslc);
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getBaseContext(),deleteTables.class);
+                intent.putExtra("syllabus","SSLC");
+                startActivity(intent);
+            }
+        });
     }
 
 }

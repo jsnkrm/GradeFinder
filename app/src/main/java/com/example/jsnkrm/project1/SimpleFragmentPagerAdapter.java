@@ -20,7 +20,6 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0)
         {
-
             return new AddGradeFragment();
         }
         else if (position == 1)
@@ -44,6 +43,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         // Generate title based on item position
         return tabTitles[position];
     }
+
 
 
 }
