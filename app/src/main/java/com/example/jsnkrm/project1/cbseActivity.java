@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -25,6 +24,7 @@ public class cbseActivity extends AppCompatActivity {
     public ArrayList<idArray> cbseId = new ArrayList<>();
 
     private int n = 0;
+    final LinearLayout[] linearLayouts = new LinearLayout[15];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class cbseActivity extends AppCompatActivity {
         final LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
         ll.setBackgroundResource(R.color.cbse);
 
-        final LinearLayout[] linearLayouts = new LinearLayout[15];
+
 
         final EditText editText = (EditText) findViewById(R.id.input_field_number);
 
@@ -54,10 +54,19 @@ public class cbseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String x = editText.getText().toString().trim();
+
+
+                if(x.isEmpty() == true)
+                {
+                    editText.setError(getResources().getString(R.string.enter_value));
+                }
+                else if(!x.isEmpty())
+                {
                 Button b = (Button) findViewById(R.id.confirm_button);
                 b.setVisibility(View.VISIBLE);
 
-                if((editText.getText().toString()) != null) {
+                if((editText.getText().toString().trim()) != null) {
 
                     n = Integer.parseInt(editText.getText().toString());
 
@@ -102,10 +111,6 @@ public class cbseActivity extends AppCompatActivity {
 
                     }
                 }
-                else
-                {
-                    Toast.makeText(getBaseContext(),"Please enter value",Toast.LENGTH_SHORT).show();
-
                 }
 
             }
@@ -115,24 +120,27 @@ public class cbseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                for(int i=0; i<n;i++)
-                {
-                    EditText editText1 = (EditText) linearLayouts[i].findViewWithTag("a");
-                    int lower = Integer.parseInt(editText1.getText().toString());
+                if(!validateAddGrade()){}
+                else {
 
-                    EditText editText2 = (EditText) linearLayouts[i].findViewWithTag("b");
-                    int upper = Integer.parseInt(editText2.getText().toString());
+                    for (int i = 0; i < n; i++) {
+                        EditText editText1 = (EditText) linearLayouts[i].findViewWithTag("a");
+                        int lower = Integer.parseInt(editText1.getText().toString());
 
-                    EditText editText3 = (EditText) linearLayouts[i].findViewWithTag("c");
-                    String s = editText3.getText().toString();
+                        EditText editText2 = (EditText) linearLayouts[i].findViewWithTag("b");
+                        int upper = Integer.parseInt(editText2.getText().toString());
 
-                    cbseGradeSystem.add(new gradeDef(lower,upper,s));
+                        EditText editText3 = (EditText) linearLayouts[i].findViewWithTag("c");
+                        String s = editText3.getText().toString();
 
-                    sqLiteHandler.addCbseGrade(String.valueOf(i),lower,upper,s);
+                        cbseGradeSystem.add(new gradeDef(lower, upper, s));
 
+                        sqLiteHandler.addCbseGrade(String.valueOf(i), lower, upper, s);
+
+                    }
+
+                    finish();
                 }
-
-                finish();
             }
 
 
@@ -140,6 +148,32 @@ public class cbseActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public boolean validateAddGrade() {
+        boolean valid = true;
+        for(int i=0; i<n;i++) {
+            EditText editText1 = (EditText) linearLayouts[i].findViewWithTag("a");
+            String lower = editText1.getText().toString().trim();
+
+            EditText editText2 = (EditText) linearLayouts[i].findViewWithTag("b");
+            String upper = editText2.getText().toString().trim();
+
+            EditText editText3 = (EditText) linearLayouts[i].findViewWithTag("c");
+            String s = editText3.getText().toString().trim();
+
+            if (lower.isEmpty()) {
+                editText1.setError(getResources().getString(R.string.enter_lvalue));
+                valid = false;
+            } else if (upper.isEmpty()) {
+                editText2.setError(getResources().getString(R.string.enter_uvalue));
+                valid = false;
+            } else if (s.isEmpty()) {
+                editText3.setError(getResources().getString(R.string.enter_grade));
+                valid = false;
+            }
+        }
+        return valid;
     }
 
 

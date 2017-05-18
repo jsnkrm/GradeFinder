@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="arabText">
+
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="arabText1">
+
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+</resources>

@@ -91,9 +91,18 @@ public class deleteTables extends AppCompatActivity {
 
                     cursor.close();
 
-                    lowText.setText("Lower Marks: " + low);
-                    upText.setText("Upper Marks: "+ up);
-                    gradeText.setText("Grade: "+ gr);
+
+                    if (!Objects.equals(grade, gr) || editText.getText().toString().trim().isEmpty()){
+                        findViewById(R.id.show_modify).setVisibility(View.GONE);
+                        findViewById(R.id.continue_modify_button).setVisibility(View.GONE);
+                        editText.setError(getResources().getString(R.string.enter_valid_grade));
+                    }
+                    else {
+                        findViewById(R.id.show_modify).setVisibility(View.VISIBLE);
+                        lowText.setText("Lower Marks: " + low);
+                        upText.setText("Upper Marks: " + up);
+                        gradeText.setText("Grade: " + gr);
+                    }
 
                 }
             });
@@ -149,9 +158,17 @@ public class deleteTables extends AppCompatActivity {
 
                     cursor.close();
 
-                    lowText.setText("Lower Marks: " + low);
-                    upText.setText("Upper Marks: "+ up);
-                    gradeText.setText("Grade: "+ gr);
+                    if (!Objects.equals(grade, gr) || editText.getText().toString().trim().isEmpty()){
+                        findViewById(R.id.show_modify).setVisibility(View.GONE);
+                        findViewById(R.id.continue_modify_button).setVisibility(View.GONE);
+                        editText.setError(getResources().getString(R.string.enter_valid_grade));
+                    }
+                    else {
+                        findViewById(R.id.show_modify).setVisibility(View.VISIBLE);
+                        lowText.setText("Lower Marks: " + low);
+                        upText.setText("Upper Marks: " + up);
+                        gradeText.setText("Grade: " + gr);
+                    }
 
                 }
             });
@@ -206,9 +223,17 @@ public class deleteTables extends AppCompatActivity {
 
                     cursor.close();
 
-                    lowText.setText("Lower Marks: " + low);
-                    upText.setText("Upper Marks: "+ up);
-                    gradeText.setText("Grade: "+ gr);
+                    if (!Objects.equals(grade, gr) || editText.getText().toString().trim().isEmpty()){
+                        findViewById(R.id.show_modify).setVisibility(View.GONE);
+                        findViewById(R.id.continue_modify_button).setVisibility(View.GONE);
+                        editText.setError(getResources().getString(R.string.enter_valid_grade));
+                    }
+                    else {
+                        findViewById(R.id.show_modify).setVisibility(View.VISIBLE);
+                        lowText.setText("Lower Marks: " + low);
+                        upText.setText("Upper Marks: " + up);
+                        gradeText.setText("Grade: " + gr);
+                    }
 
                 }
             });

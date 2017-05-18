@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">lalala</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">lalala</string>
+    <string name="cbse">lalala</string>
+    <string name="icsc">lalala</string>
+    <string name="sslc">lalala</string>
+    <string name="title_activity_cbse">lalala</string>
+    <string name="lvalue">lalala</string>
+    <string name="uvalue">lalala</string>
+    <string name="grade">lalala</string>
+    <string name="fields_num">lalala</string>
+    <string name="submit">lalala</string>
+    <string name="confirm">lalala</string>
+    <string name="continue_modify">lalala</string>
+    <string name="confirm_modify">lalala</string>
+    <string name="confirm_delete">lalala</string>
+    <string name="title_activity_sslc">lalala</string>
+    <string name="class1">lalala</string>
+    <string name="name">lalala</string>
+    <string name="enter_mark">lalala</string>
+    <string name="sub1">lalala</string>
+    <string name="sub2">lalala</string>
+    <string name="sub3">lalala</string>
+    <string name="sub4">lalala</string>
+    <string name="sub5">lalala</string>
+    <string name="eval">lalala</string>
+    <string name="spinner_prompt">lalala</string>
+    <string name="spinner_prompt1">lalala</string>
+    <string name="save">lalala</string>
+    <string name="grade_card">lalala</string>
+    <string name="add_new">lalala</string>
+    <string name="modify">lalala</string>
+    <string name="delete">lalala</string>
+    <string name="modify_hint">lalala</string>
+    <string name="modify_title">lalala</string>
+    <string name="delete_title">lalala</string>
+    <string name="delete_hint">lalala</string>
+    <string name="hint_changeLang">lalala</string>
+    <string name="hint_eng">lalala</string>
+    <string name="hint_arabic">lalala</string>
+    <string name="hint_hindi">lalala</string>
+</resources>

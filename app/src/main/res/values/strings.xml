@@ -6,7 +6,9 @@
     <string name="cbse">CBSE</string>
     <string name="icsc">ICSC</string>
     <string name="sslc">SSLC</string>
-    <string name="title_activity_cbse">CBSE MARK SYSTEM</string>
+    <string name="title_activity_cbse">ADD NEW CBSE FIELD</string>
+    <string name="title_activity_icsc">ADD NEW ICSC FIELD</string>
+    <string name="title_activity_sslc">ADD NEW SSLC FIELD</string>
     <string name="lvalue">Lower marks</string>
     <string name="uvalue">Upper marks</string>
     <string name="grade">Grade</string>
@@ -16,7 +18,6 @@
     <string name="continue_modify">CONTINUE TO MODIFY</string>
     <string name="confirm_modify">CONFIRM MODIFICATION</string>
     <string name="confirm_delete">CONFIRM DELETION</string>
-    <string name="title_activity_sslc">sslcActivity</string>
     <string name="class1">CLASS:</string>
     <string name="name">NAME:</string>
     <string name="enter_mark">Enter Marks For Each Subject:</string>
@@ -37,5 +38,23 @@
     <string name="modify_title">MODIFY GRADE SYSTEM</string>
     <string name="delete_title">DELETE GRADE FIELD</string>
     <string name="delete_hint">Enter Grade Of Field Tb Be Modified</string>
-
+    <string name="hint_changeLang">SELECT LANGUAGE</string>
+    <string name="hint_eng">ENGLISH</string>
+    <string name="hint_arabic">ARABIC</string>
+    <string name="hint_hindi">HINDI</string>
+    <string name="please_enter_name">Please Enter A Valid Name</string>
+    <string name="enter_sub1">Please Enter Marks For Subject 1!!</string>
+    <string name="enter_sub2">Please Enter Marks For Subject 2!!</string>
+    <string name="enter_sub3">Please Enter Marks For Subject 3!!</string>
+    <string name="enter_sub4">Please Enter Marks For Subject 4!!</string>
+    <string name="enter_sub5">Please Enter Marks For Subject 5!!</string>
+    <string name="enter_valid_marks">Please Enter Valid Marks Only!!</string>
+    <string name="adding_student">Adding Student Information....</string>
+    <string name="enter_lvalue">Please Enter Lower Mark Value</string>
+    <string name="enter_uvalue">Please Enter Upper Mark Value</string>
+    <string name="enter_grade">Please Enter THE Corresponding Grade</string>
+    <string name="enter_valid_grade">Please Enter Valid Grade</string>
+    <string name="enter_value">Please Enter A Value!!</string>
+    <string name="logout">Logout</string>
+    <string name="user_login">User Login</string>
 </resources>

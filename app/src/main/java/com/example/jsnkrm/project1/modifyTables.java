@@ -67,35 +67,46 @@ public class modifyTables extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Button b = (Button) findViewById(R.id.continue_modify_button);
-                    b.setVisibility(View.VISIBLE);
-
-                    String grade = editText.getText().toString();
-
-                    cursor = sqLiteHandler.getCBSErow(grade);
-
-                    if (cursor != null && cursor.getCount() != 0)
+                    if (editText.getText().toString().isEmpty() == true)
                     {
+                        editText.setError(getResources().getString(R.string.enter_value));
+                    }
+                    else {
+                        Button b = (Button) findViewById(R.id.continue_modify_button);
+                        b.setVisibility(View.VISIBLE);
 
-                        if (cursor.moveToFirst())
-                        {
+                        String grade = editText.getText().toString().trim();
 
-                            do
-                            {
-                                low = Integer.parseInt(cursor.getString(cursor.getColumnIndex("lower_marks")));
-                                up = Integer.parseInt(cursor.getString(cursor.getColumnIndex("upper_marks")));
-                                gr = cursor.getString(cursor.getColumnIndex("grade"));
+                        cursor = sqLiteHandler.getCBSErow(grade);
 
-                            } while (cursor.moveToNext());
+                        if (cursor != null && cursor.getCount() != 0) {
 
+                            if (cursor.moveToFirst()) {
+
+                                do {
+                                    low = Integer.parseInt(cursor.getString(cursor.getColumnIndex("lower_marks")));
+                                    up = Integer.parseInt(cursor.getString(cursor.getColumnIndex("upper_marks")));
+                                    gr = cursor.getString(cursor.getColumnIndex("grade"));
+
+                                } while (cursor.moveToNext());
+
+                            }
+                        }
+
+                        cursor.close();
+
+                        if (!Objects.equals(grade, gr)){
+                            findViewById(R.id.show_modify).setVisibility(View.GONE);
+                            findViewById(R.id.continue_modify_button).setVisibility(View.GONE);
+                            editText.setError(getResources().getString(R.string.enter_valid_grade));
+                        }
+                        else {
+                            findViewById(R.id.show_modify).setVisibility(View.VISIBLE);
+                            lowText.setText("Lower Marks: " + low);
+                            upText.setText("Upper Marks: " + up);
+                            gradeText.setText("Grade: " + gr);
                         }
                     }
-
-                    cursor.close();
-
-                    lowText.setText("Lower Marks: " + low);
-                    upText.setText("Upper Marks: "+ up);
-                    gradeText.setText("Grade: "+ gr);
 
                 }
             });
@@ -155,21 +166,42 @@ public class modifyTables extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
+                    EditText editText1 = (EditText) ll.findViewWithTag("a");
+                    EditText editText2 = (EditText) ll.findViewWithTag("b");
+                    EditText editText3 = (EditText) ll.findViewWithTag("c");
 
+                    if((!editText1.getText().toString().trim().isEmpty()) &&
+                            (!editText2.getText().toString().trim().isEmpty())
+                            && (!editText3.getText().toString().trim().isEmpty()))
+                    {
                         i++;
 
-                        EditText editText1 = (EditText) ll.findViewWithTag("a");
                         int lower = Integer.parseInt(editText1.getText().toString());
 
-                        EditText editText2 = (EditText) ll.findViewWithTag("b");
                         int upper = Integer.parseInt(editText2.getText().toString());
 
-                        EditText editText3 = (EditText) ll.findViewWithTag("c");
                         String s = editText3.getText().toString();
 
                         sqLiteHandler.addCbseGrade(String.valueOf(i),lower,upper,s);
 
                         finish();
+                    }
+                    else if ((editText1.getText().toString().trim().isEmpty()) ||
+                            (editText2.getText().toString().trim().isEmpty())
+                            || (editText3.getText().toString().trim().isEmpty())){
+                        if (editText1.getText().toString().trim().isEmpty() == true)
+                        {
+                            editText1.setError(getResources().getString(R.string.enter_value));
+                        }
+                        if (editText2.getText().toString().trim().isEmpty() == true)
+                        {
+                            editText2.setError(getResources().getString(R.string.enter_value));
+                        }
+                        if (editText3.getText().toString().trim().isEmpty() == true)
+                        {
+                            editText3.setError(getResources().getString(R.string.enter_value));
+                        }
+                    }
                 }
 
 
@@ -184,37 +216,46 @@ public class modifyTables extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Button b = (Button) findViewById(R.id.continue_modify_button);
-                    b.setVisibility(View.VISIBLE);
-
-                    String grade = editText.getText().toString();
-
-                    cursor = sqLiteHandler.getSSLCrow(grade);
-
-                    if (cursor != null && cursor.getCount() != 0)
+                    if (editText.getText().toString().isEmpty() == true)
                     {
+                        editText.setError(getResources().getString(R.string.enter_value));
+                    }
+                    else {
 
-                        if (cursor.moveToFirst())
-                        {
+                        Button b = (Button) findViewById(R.id.continue_modify_button);
+                        b.setVisibility(View.VISIBLE);
 
-                            do
-                            {
-                                low = Integer.parseInt(cursor.getString(cursor.getColumnIndex("lower_marks")));
-                                up = Integer.parseInt(cursor.getString(cursor.getColumnIndex("upper_marks")));
-                                gr = cursor.getString(cursor.getColumnIndex("grade"));
+                        String grade = editText.getText().toString();
 
-                            } while (cursor.moveToNext());
+                        cursor = sqLiteHandler.getSSLCrow(grade);
 
+                        if (cursor != null && cursor.getCount() != 0) {
+
+                            if (cursor.moveToFirst()) {
+
+                                do {
+                                    low = Integer.parseInt(cursor.getString(cursor.getColumnIndex("lower_marks")));
+                                    up = Integer.parseInt(cursor.getString(cursor.getColumnIndex("upper_marks")));
+                                    gr = cursor.getString(cursor.getColumnIndex("grade"));
+
+                                } while (cursor.moveToNext());
+
+                            }
+                        }
+
+                        cursor.close();
+                        if (!Objects.equals(grade, gr)){
+                            findViewById(R.id.show_modify).setVisibility(View.GONE);
+                            findViewById(R.id.continue_modify_button).setVisibility(View.GONE);
+                            editText.setError(getResources().getString(R.string.enter_valid_grade));
+                        }
+                        else {
+                            findViewById(R.id.show_modify).setVisibility(View.VISIBLE);
+                            lowText.setText("Lower Marks: " + low);
+                            upText.setText("Upper Marks: " + up);
+                            gradeText.setText("Grade: " + gr);
                         }
                     }
-
-                    cursor.close();
-
-                    lowText.setText("Lower Marks: " + low);
-                    upText.setText("Upper Marks: "+ up);
-                    gradeText.setText("Grade: "+ gr);
-
                 }
             });
 
@@ -274,20 +315,42 @@ public class modifyTables extends AppCompatActivity {
                 public void onClick(View v) {
 
 
-                    i++;
-
                     EditText editText1 = (EditText) ll.findViewWithTag("a");
-                    int lower = Integer.parseInt(editText1.getText().toString());
-
                     EditText editText2 = (EditText) ll.findViewWithTag("b");
-                    int upper = Integer.parseInt(editText2.getText().toString());
-
                     EditText editText3 = (EditText) ll.findViewWithTag("c");
-                    String s = editText3.getText().toString();
 
-                    sqLiteHandler.addSslcGrade(String.valueOf(i),lower,upper,s);
+                    if((!editText1.getText().toString().trim().isEmpty()) &&
+                            (!editText2.getText().toString().trim().isEmpty())
+                            && (!editText3.getText().toString().trim().isEmpty()))
+                    {
+                        i++;
 
-                    finish();
+                        int lower = Integer.parseInt(editText1.getText().toString());
+
+                        int upper = Integer.parseInt(editText2.getText().toString());
+
+                        String s = editText3.getText().toString();
+
+                        sqLiteHandler.addSslcGrade(String.valueOf(i),lower,upper,s);
+
+                        finish();
+                    }
+                    else if ((editText1.getText().toString().trim().isEmpty()) ||
+                            (editText2.getText().toString().trim().isEmpty())
+                            || (editText3.getText().toString().trim().isEmpty())){
+                        if (editText1.getText().toString().trim().isEmpty())
+                        {
+                            editText1.setError(getResources().getString(R.string.enter_value));
+                        }
+                        if (editText2.getText().toString().trim().isEmpty())
+                        {
+                            editText2.setError(getResources().getString(R.string.enter_value));
+                        }
+                        if (editText3.getText().toString().trim().isEmpty())
+                        {
+                            editText3.setError(getResources().getString(R.string.enter_value));
+                        }
+                    }
                 }
 
 
@@ -302,35 +365,46 @@ public class modifyTables extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Button b = (Button) findViewById(R.id.continue_modify_button);
-                    b.setVisibility(View.VISIBLE);
-
-                    String grade = editText.getText().toString();
-
-                    cursor = sqLiteHandler.getICSCrow(grade);
-
-                    if (cursor != null && cursor.getCount() != 0)
+                    if (editText.getText().toString().isEmpty() == true)
                     {
+                        editText.setError(getResources().getString(R.string.enter_value));
+                    }
+                    else {
+                        Button b = (Button) findViewById(R.id.continue_modify_button);
+                        b.setVisibility(View.VISIBLE);
 
-                        if (cursor.moveToFirst())
-                        {
+                        String grade = editText.getText().toString();
 
-                            do
-                            {
-                                low = Integer.parseInt(cursor.getString(cursor.getColumnIndex("lower_marks")));
-                                up = Integer.parseInt(cursor.getString(cursor.getColumnIndex("upper_marks")));
-                                gr = cursor.getString(cursor.getColumnIndex("grade"));
+                        cursor = sqLiteHandler.getICSCrow(grade);
 
-                            } while (cursor.moveToNext());
+                        if (cursor != null && cursor.getCount() != 0) {
 
+                            if (cursor.moveToFirst()) {
+
+                                do {
+                                    low = Integer.parseInt(cursor.getString(cursor.getColumnIndex("lower_marks")));
+                                    up = Integer.parseInt(cursor.getString(cursor.getColumnIndex("upper_marks")));
+                                    gr = cursor.getString(cursor.getColumnIndex("grade"));
+
+                                } while (cursor.moveToNext());
+
+                            }
+                        }
+
+                        cursor.close();
+
+                        if (!Objects.equals(grade, gr)){
+                            findViewById(R.id.show_modify).setVisibility(View.GONE);
+                            findViewById(R.id.continue_modify_button).setVisibility(View.GONE);
+                            editText.setError(getResources().getString(R.string.enter_valid_grade));
+                        }
+                        else {
+                            findViewById(R.id.show_modify).setVisibility(View.VISIBLE);
+                            lowText.setText("Lower Marks: " + low);
+                            upText.setText("Upper Marks: " + up);
+                            gradeText.setText("Grade: " + gr);
                         }
                     }
-
-                    cursor.close();
-
-                    lowText.setText("Lower Marks: " + low);
-                    upText.setText("Upper Marks: "+ up);
-                    gradeText.setText("Grade: "+ gr);
 
                 }
             });
@@ -390,21 +464,42 @@ public class modifyTables extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-
-                    i++;
-
                     EditText editText1 = (EditText) ll.findViewWithTag("a");
-                    int lower = Integer.parseInt(editText1.getText().toString());
-
                     EditText editText2 = (EditText) ll.findViewWithTag("b");
-                    int upper = Integer.parseInt(editText2.getText().toString());
-
                     EditText editText3 = (EditText) ll.findViewWithTag("c");
-                    String s = editText3.getText().toString();
 
-                    sqLiteHandler.addIcscGrade(String.valueOf(i),lower,upper,s);
+                    if((!editText1.getText().toString().trim().isEmpty()) &&
+                            (!editText2.getText().toString().trim().isEmpty())
+                            && (!editText3.getText().toString().trim().isEmpty()))
+                    {
+                        i++;
 
-                    finish();
+                        int lower = Integer.parseInt(editText1.getText().toString());
+
+                        int upper = Integer.parseInt(editText2.getText().toString());
+
+                        String s = editText3.getText().toString();
+
+                        sqLiteHandler.addIcscGrade(String.valueOf(i),lower,upper,s);
+
+                        finish();
+                    }
+                    else if ((editText1.getText().toString().trim().isEmpty()) ||
+                            (editText2.getText().toString().trim().isEmpty())
+                            || (editText3.getText().toString().trim().isEmpty())){
+                        if (editText1.getText().toString().trim().isEmpty())
+                        {
+                            editText1.setError(getResources().getString(R.string.enter_value));
+                        }
+                        if (editText2.getText().toString().trim().isEmpty())
+                        {
+                            editText2.setError(getResources().getString(R.string.enter_value));
+                        }
+                        if (editText3.getText().toString().trim().isEmpty())
+                        {
+                            editText3.setError(getResources().getString(R.string.enter_value));
+                        }
+                    }
                 }
 
 

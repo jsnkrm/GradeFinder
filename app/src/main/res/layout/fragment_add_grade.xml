@@ -12,6 +12,7 @@
 
         <EditText
             android:padding="16dp"
+            style="@style/arabText"
             android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
             />
 
     <Spinner
+        style="@style/arabText"
         android:padding="16dp"
         android:id="@+id/spinner1"
         android:layout_width="fill_parent"
@@ -38,6 +40,7 @@
             android:spinnerMode="dialog"
             android:prompt="@string/spinner_prompt"
             android:descendantFocusability="blocksDescendants"
+
             />
 
 
@@ -167,9 +170,11 @@
 
         <TextView
             android:id="@+id/totGrade_Textview"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:textSize="32sp"
+            android:gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"

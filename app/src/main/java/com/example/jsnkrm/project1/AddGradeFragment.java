@@ -1,5 +1,6 @@
 package com.example.jsnkrm.project1;
 
+import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,8 @@ public class AddGradeFragment extends Fragment {
 
     String a,b;
 
+    EditText e1,e2,e3,e4,e5,name;
+
 
     StuInfo stuInfo = null;
 
@@ -42,6 +45,8 @@ public class AddGradeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        
         // Inflate the layout for this fragment
         final View rootview = inflater.inflate(R.layout.fragment_add_grade, container, false);
 
@@ -61,12 +66,12 @@ public class AddGradeFragment extends Fragment {
         final TextView g5 = (TextView) rootview.findViewById(R.id.grade5);
         final TextView gTot = (TextView) rootview.findViewById(R.id.totGrade_Textview);
 
-        final EditText e1 = (EditText) rootview.findViewById(R.id.sub1);
-        final EditText e2 = (EditText) rootview.findViewById(R.id.sub2);
-        final EditText e3 = (EditText) rootview.findViewById(R.id.sub3);
-        final EditText e4 = (EditText) rootview.findViewById(R.id.sub4);
-        final EditText e5 = (EditText) rootview.findViewById(R.id.sub5);
-        final EditText name = (EditText) rootview.findViewById(R.id.input_name);
+         e1 = (EditText) rootview.findViewById(R.id.sub1);
+         e2 = (EditText) rootview.findViewById(R.id.sub2);
+         e3 = (EditText) rootview.findViewById(R.id.sub3);
+         e4 = (EditText) rootview.findViewById(R.id.sub4);
+         e5 = (EditText) rootview.findViewById(R.id.sub5);
+         name = (EditText) rootview.findViewById(R.id.input_name);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -95,33 +100,46 @@ public class AddGradeFragment extends Fragment {
         });
 
 
+        Button save = (Button) rootview.findViewById(R.id.save_button);
+        save.setVisibility(View.GONE);
 
+        final Button eval_button = (Button) rootview.findViewById(R.id.eval_button);
 
-
-        Button eval_button = (Button) rootview.findViewById(R.id.eval_button);
-
+        final Button finalSave = save;
         eval_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                    stuInfo = new StuInfo(name.getText().toString(),b,Integer.parseInt(a),Integer.parseInt(e1.getText().toString())
-                        ,Integer.parseInt(e2.getText().toString()),Integer.parseInt(e3.getText().toString()),Integer.parseInt(e4.getText().toString()),
-                        Integer.parseInt(e5.getText().toString()));
+                if(!validateAddGrade()){}
+                else {
 
-                findGrades(stuInfo);
+                    eval_button.setVisibility(View.GONE);
+                    finalSave.setVisibility(View.VISIBLE);
 
-                linearLayout.setVisibility(View.VISIBLE);
-                g1.setText(stuInfo.getmGrade1());
-                g2.setText(stuInfo.getmGrade2());
-                g3.setText(stuInfo.getmGrade3());
-                g4.setText(stuInfo.getmGrade4());
-                g5.setText(stuInfo.getmGrade5());
-                gTot.setText("Total Grade:"+stuInfo.getmTotGrade());
+                    stuInfo = new StuInfo(name.getText().toString(), b, Integer.parseInt(a), Integer.parseInt(e1.getText().toString())
+                            , Integer.parseInt(e2.getText().toString()), Integer.parseInt(e3.getText().toString()), Integer.parseInt(e4.getText().toString()),
+                            Integer.parseInt(e5.getText().toString()));
 
+                    findGrades(stuInfo);
+
+                    if(stuInfo.getmGrade1() == null ||stuInfo.getmGrade2() == null||stuInfo.getmGrade3() == null
+                            ||stuInfo.getmGrade4() == null||stuInfo.getmGrade5() == null)
+                            gTot.setText(getResources().getString(R.string.enter_valid_marks));
+                    else
+                    {
+                        linearLayout.setVisibility(View.VISIBLE);
+                        g1.setText(stuInfo.getmGrade1());
+                        g2.setText(stuInfo.getmGrade2());
+                        g3.setText(stuInfo.getmGrade3());
+                        g4.setText(stuInfo.getmGrade4());
+                        g5.setText(stuInfo.getmGrade5());
+                        gTot.setText("Total Grade:" + stuInfo.getmTotGrade());
+                    }
+                }
             }
         });
 
-        Button save = (Button) rootview.findViewById(R.id.save_button);
+        save = (Button) rootview.findViewById(R.id.save_button);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +148,10 @@ public class AddGradeFragment extends Fragment {
                 AddStu(stuInfo);
                 stuInfo.ClearStu();
 
+                ProgressDialog progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setMessage(getResources().getString(R.string.adding_student));
+                progressDialog.setCancelable(true);
+                progressDialog.show();
 
                 linearLayout.setVisibility(View.GONE);
                 g1.setText(null);
@@ -308,6 +330,48 @@ public class AddGradeFragment extends Fragment {
                 stu.getmGrade1(),stu.getmGrade2(),stu.getmGrade3(),stu.getmGrade4(),
                 stu.getmGrade5(),stu.getmTotGrade());
 
+    }
+
+    public boolean validateAddGrade() {
+        boolean valid = true;
+        String stuName = name.getText().toString().trim();
+        String sub1 = e1.getText().toString().trim();
+        String sub2 = e2.getText().toString().trim();
+        String sub3 = e3.getText().toString().trim();
+        String sub4 = e4.getText().toString().trim();
+        String sub5 = e5.getText().toString().trim();
+        if (stuName.isEmpty())
+        {
+            name.setError(getResources().getString(R.string.please_enter_name));
+            valid = false;
+        }
+        else if (sub1.isEmpty())
+        {
+            e1.setError(getResources().getString(R.string.enter_sub1));
+            valid = false;
+        }
+        else if (sub2.isEmpty())
+        {
+            e2.setError(getResources().getString(R.string.enter_sub2));
+            valid = false;
+        }
+        else if (sub3.isEmpty())
+        {
+            e3.setError(getResources().getString(R.string.enter_sub3));
+            valid = false;
+        }
+        else if (sub4.isEmpty())
+        {
+            e4.setError(getResources().getString(R.string.enter_sub4));
+            valid = false;
+        }
+        else if (sub5.isEmpty())
+        {
+            e5.setError(getResources().getString(R.string.enter_sub5));
+            valid = false;
+        }
+
+        return valid;
     }
 
 }

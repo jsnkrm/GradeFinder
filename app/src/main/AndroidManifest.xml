@@ -19,17 +19,25 @@
         <activity
             android:name=".cbseActivity"
             android:label="@string/title_activity_cbse"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".icscActivity" />
+            android:parentActivityName=".cbseSettings"/>
         <activity
             android:name=".sslcActivity"
             android:label="@string/title_activity_sslc"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".sslcSettings"></activity>
+        <activity android:name=".LoginActivity"
+            android:label="@string/user_login">
+
+        </activity>
+        <activity
+            android:name=".icscActivity"
+            android:label="@string/title_activity_icsc"
+            android:parentActivityName=".icscSettings"></activity>
         <activity
             android:name=".cbseSettings"
             android:label="@string/cbse"
             android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".modifyTables"
+        <activity
+            android:name=".modifyTables"
             android:label="@string/modify_title"
             android:parentActivityName=".MainActivity"></activity>
         <activity
