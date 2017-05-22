@@ -23,6 +23,7 @@ public class ListGradeFragment extends Fragment {
     View rootview;
 
     ArrayList<StuInfo> students = new ArrayList<>();
+    ListView listView;
 
     public ListGradeFragment() {
         // Required empty public constructor
@@ -34,11 +35,11 @@ public class ListGradeFragment extends Fragment {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_list_grade, container, false);
 
+         listView = (ListView) rootview.findViewById(R.id.list);
+
         addData();
 
         itemsAdapter = new StuAdapter(getActivity(), students);
-
-        ListView listView = (ListView) rootview.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
 
@@ -76,6 +77,7 @@ public class ListGradeFragment extends Fragment {
 
         cursor.close();
     }
+
 
 }
 

@@ -1,6 +1,5 @@
 package com.example.jsnkrm.project1;
 
-import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -141,17 +140,22 @@ public class AddGradeFragment extends Fragment {
 
         save = (Button) rootview.findViewById(R.id.save_button);
 
+        final Button finalSave1 = save;
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                finalSave1.setVisibility(View.GONE);
+                eval_button.setVisibility(View.VISIBLE);
+
                 AddStu(stuInfo);
                 stuInfo.ClearStu();
 
-                ProgressDialog progressDialog = new ProgressDialog(getActivity());
-                progressDialog.setMessage(getResources().getString(R.string.adding_student));
-                progressDialog.setCancelable(true);
-                progressDialog.show();
+//                ProgressDialog progressDialog = new ProgressDialog(getActivity());
+//                progressDialog.setMessage(getResources().getString(R.string.adding_student));
+//                progressDialog.setCancelable(true);
+//                progressDialog.show();
 
                 linearLayout.setVisibility(View.GONE);
                 g1.setText(null);

@@ -83,4 +83,9 @@ public class StuAdapter extends ArrayAdapter<StuInfo> {
 
         return listItemView;
     }
+
+    public void setArrayList(ArrayList<StuInfo> students) {
+        this.students = students;
+        notifyDataSetChanged();
+    }
 }
