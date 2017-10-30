@@ -1,0 +1,1 @@
+A simple Android app that outputs students grades on inputting students mark in different subjects.
